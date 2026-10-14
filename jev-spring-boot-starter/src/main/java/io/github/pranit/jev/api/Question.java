@@ -1,4 +1,4 @@
-package io.github.pranit.api;
+package io.github.pranit.jev.api;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
@@ -12,7 +12,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/** A typed judgment about state. Instructions and descriptions may be text or structured JSON values. */
+/**
+ * A typed judgment about state. Instructions and descriptions may be text or structured JSON values.
+ */
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Question.Result.class, name = "result    "),
@@ -26,7 +28,9 @@ public sealed interface Question permits Question.Result, Question.Choice, Quest
         return new Result(instructions, null);
     }
 
-    /** Describe the yes and no outcomes explicitly. */
+    /**
+     * Describe the yes and no outcomes explicitly.
+     */
     static Result result(Object instructions, Object whenTrue, Object whenFalse) {
         var criteria = new LinkedHashMap<String, Object>();
         criteria.put("true", whenTrue);
@@ -38,7 +42,9 @@ public sealed interface Question permits Question.Result, Question.Choice, Quest
         return new Choice(instructions, options);
     }
 
-    /** Create undescribed options without needing a map containing null values. */
+    /**
+     * Create undescribed options without needing a map containing null values.
+     */
     static Choice choice(Object instructions, String... labels) {
         Assert.notNull(labels, "Choice labels must not be null");
         var criteria = new LinkedHashMap<String, Object>();
@@ -58,10 +64,12 @@ public sealed interface Question permits Question.Result, Question.Choice, Quest
         return new Score(instructions, Arrays.asList(levels));
     }
 
-    /** Yes/no judgment. Criteria keys, when supplied, are "true" and "false". */
+    /**
+     * Yes/no judgment. Criteria keys, when supplied, are "true" and "false".
+     */
     record Result(Object instructions,
-                @JsonInclude(value = JsonInclude.Include.NON_NULL, content = JsonInclude.Include.ALWAYS)
-                Map<String, ?> criteria) implements Question {
+                  @JsonInclude(value = JsonInclude.Include.NON_NULL, content = JsonInclude.Include.ALWAYS)
+                  Map<String, ?> criteria) implements Question {
         public Result {
             if (criteria != null) {
                 Assert.isTrue(criteria.keySet()
@@ -73,7 +81,9 @@ public sealed interface Question permits Question.Result, Question.Choice, Quest
         }
     }
 
-    /** Choose a named option. Null descriptions mean that the label alone describes the option. */
+    /**
+     * Choose a named option. Null descriptions mean that the label alone describes the option.
+     */
     record Choice(Object instructions,
                   @JsonInclude(content = JsonInclude.Include.ALWAYS) Map<String, ?> criteria) implements Question {
         public Choice {
@@ -83,7 +93,9 @@ public sealed interface Question permits Question.Result, Question.Choice, Quest
         }
     }
 
-    /** Ordered rubric with at least two levels, indexed from zero. */
+    /**
+     * Ordered rubric with at least two levels, indexed from zero.
+     */
     record Score(Object instructions, List<?> criteria) implements Question {
         public Score {
             Assert.notNull(criteria, "Score levels must not be null");

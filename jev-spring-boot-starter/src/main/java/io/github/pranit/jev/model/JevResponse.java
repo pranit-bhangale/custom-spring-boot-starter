@@ -1,8 +1,8 @@
-package io.github.pranit.model;
+package io.github.pranit.jev.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.github.pranit.api.Answer;
+import io.github.pranit.jev.api.Answer;
 import org.springframework.util.Assert;
 
 import java.util.Map;

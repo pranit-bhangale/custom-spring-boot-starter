@@ -1,9 +1,9 @@
-package io.github.pranit.client;
+package io.github.pranit.jev.client;
 
-import io.github.pranit.api.Answer;
-import io.github.pranit.api.Question;
-import io.github.pranit.model.JevRequest;
-import io.github.pranit.model.JevResponse;
+import io.github.pranit.jev.api.Answer;
+import io.github.pranit.jev.api.Question;
+import io.github.pranit.jev.model.JevRequest;
+import io.github.pranit.jev.model.JevResponse;
 import org.springframework.http.MediaType;
 import org.springframework.util.Assert;
 import org.springframework.web.client.RestClient;

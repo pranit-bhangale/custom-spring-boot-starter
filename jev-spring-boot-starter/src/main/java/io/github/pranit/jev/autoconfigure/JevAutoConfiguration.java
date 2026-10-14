@@ -1,6 +1,6 @@
-package io.github.pranit.autoconfigure;
+package io.github.pranit.jev.autoconfigure;
 
-import io.github.pranit.client.JevClient;
+import io.github.pranit.jev.client.JevClient;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

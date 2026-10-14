@@ -1,6 +1,6 @@
-package io.github.pranit.model;
+package io.github.pranit.jev.model;
 
-import io.github.pranit.api.Question;
+import io.github.pranit.jev.api.Question;
 import org.springframework.util.Assert;
 
 import java.util.Collections;
