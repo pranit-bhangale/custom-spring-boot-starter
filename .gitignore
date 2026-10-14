@@ -1,0 +1,38 @@
+# Spring Boot / Java
+target/
+*.class
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/MavenWrapperDownloader.java
+!.mvn/wrapper/maven-wrapper.properties
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+.flattened-pom.xml
+
+# Gradle
+.gradle/
+build/
+
+# Logs
+logs/
+*.log
+
+# Environment / local files
+.env
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
